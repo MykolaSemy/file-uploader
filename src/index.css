@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+}
+@layer components {
+  .app {
+    @apply w-full h-fit md:h-screen bg-bgPrimary flex flex-col justify-start items-center;
+  }
+  .title {
+    @apply font-bold text-3xl leading-10 text-titleColor text-center;
+  }
+  .error {
+    @apply font-normal text-3xl leading-10;
+  }
+  .description {
+    @apply font-normal text-lg leading-6;
+  }
+  .button {
+    @apply text-center text-white flex items-center justify-center p-2 w-80 h-20;
+  }
+  .spinner {
+    @apply rounded-full border-4 border-white w-7 aspect-square mx-auto border-t-transparent animate-spin ease-in-out duration-75;
+  }
+  .item {
+    @apply bg-black bg-opacity-0 hover:bg-opacity-5 duration-200 px-5 py-1 my-2 rounded  h-40 w-36 overflow-hidden flex flex-col justify-end items-center;
+  }
+  .file-list {
+    @apply flex md:flex-row flex-col justify-center items-center md:items-end w-full;
+  }
+  .modal {
+    @apply bg-white w-fit h-2/6 flex flex-col justify-center border-8 border-formBorderDirty rounded-xl items-center p-5;
+  }
+  .modal-bg {
+    @apply fixed top-0 left-0 h-screen w-full bg-black bg-opacity-30 flex justify-center items-center z-10;
+  }
+}
+@layer utilities {
+  .uploadForm-empty {
+    @apply rounded-xl bg-white border-formBorderEmpty border-8;
+  }
+  .uploadForm-dirty {
+    @apply rounded-xl border-formBorderDirty bg-formDirty border-4;
+  }
+  .green-button {
+    @apply font-semibold text-3xl leading-10  bg-transparent   bg-green border-4 border-green rounded-lg  hover:bg-lime-400  duration-150 ease-in-out;
+  }
+  .blue-button {
+    @apply font-normal text-lg leading-7  bg-blue  rounded-xl  border-4 border-blue;
+  }
+  .uploadForm {
+    @apply md:h-80 h-fit w-10/12 my-5 flex items-center justify-center  border-solid;
+  }
 }
