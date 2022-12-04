@@ -11,7 +11,7 @@ export const setPreviewIcon = (
         <RxFile className="h-full w-auto" />
       </div>
     ) : (
-      <img src={objectURL} alt="" className=" w-full h-auto mx-auto " />
+      <img src={objectURL} alt="" className=" w-5/6 h-auto mx-auto " />
     );
   setPreview(preview);
 };
